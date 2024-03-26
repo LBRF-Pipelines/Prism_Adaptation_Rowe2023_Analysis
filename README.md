@@ -1,7 +1,7 @@
 # Prism_Adaptation_Rowe2023_Analysis
 Analysis code for a study examining if internal models are updated during motor imagery-based practice
 
-# Dependencies
+## Dependencies
 
 To install the R packages required for runnning this analysis pipline, run the following command at an R prompt: 
 
@@ -11,7 +11,7 @@ install.packages(
   )
 ```
 
-# Running the pipeline
+## Running the pipeline
 
 First, to run the pipeline, you will need to place the contents of the ```Data folder``` from the project's OSF repository (found [here](https://osf.io/6tv5m/files/osfstorage)) in the pipeline's ```_Data folder```. 
 
