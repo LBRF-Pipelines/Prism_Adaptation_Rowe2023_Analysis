@@ -12,6 +12,7 @@ library(tidytable)
 library(afex)
 library(emmeans)
 library(car)
+library(performance)
 
 ### Import trial data ###
 
@@ -55,8 +56,9 @@ df_aftereffects <- df_aftereffects %>%
 
 ### Import demographic data ###
 
-demo_dat <- "./_Data/Participant_info.csv"
+demo_dat <- read.csv("./_Data/Participant_info.csv")
 
 # Remove participant 34, experiment crashed
 demo_dat <- subset(demo_dat, !(demo_dat$P_ID == "P34"))
+
 
