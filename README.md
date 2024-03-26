@@ -7,7 +7,7 @@ To install the R packages required for runnning this analysis pipline, run the f
 
 ```r
 install.packages(
-  c("data.table", "dplyr", "tidytable", "ggplot2", "Rmisc", "afex", "emmeans", "performance")
+  c("data.table", "dplyr", "tidytable", "ggplot2", "Rmisc", "afex", "emmeans", "performance", "car")
   )
 ```
 
