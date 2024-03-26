@@ -28,6 +28,8 @@ norm_plot_posttest <- ggplot(data = PostTest,
 norm_plot_posttest
 
 # Two-Way ANOVA
+library(performance)
+library(car)
 
 mod_twoway <- aov_4(
   visual_angle ~ block * group + (block | id), #block is nested in participant
@@ -53,7 +55,7 @@ emm1$emmeans # look at means
 
 # Plotting interaction plot with emmeans
 pd = position_dodge(0.2)
-ggplot(as_tibble(emm1$emmeans), aes(x = block, y = emmean,color = group, group = group)) +
+interaction_plot <- ggplot(as_tibble(emm1$emmeans), aes(x = block, y = emmean,color = group, group = group)) +
   geom_errorbar(aes(ymin = lower.CL,
                     ymax = upper.CL), 
                 width = 0.2,
@@ -75,4 +77,7 @@ ggplot(as_tibble(emm1$emmeans), aes(x = block, y = emmean,color = group, group =
         legend.text = element_text(size = rel(1)),
         legend.title = element_text(size = rel(1.25)),
         axis.title = element_text(size = rel(1.25)))
+
+interaction_plot
+
 
