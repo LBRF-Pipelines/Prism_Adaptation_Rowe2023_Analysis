@@ -25,5 +25,5 @@ source("./_Scripts/0_import.R")
 source("./_Scripts/1_twoway_ANOVA.R")
 
 # Summarize demographic data
-source("./_Scripts/demographic_analysis.R")
+source("./_Scripts/2_demographic_analysis.R")
 ```
