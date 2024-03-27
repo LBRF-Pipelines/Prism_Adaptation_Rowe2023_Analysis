@@ -58,7 +58,9 @@ df_aftereffects <- df_aftereffects %>%
 
 demo_dat <- read.csv("./_Data/Participant_info.csv")
 
+# Subset complete data
+demo_dat <- demo_dat[1:67,]
+
 # Remove participant 34, experiment crashed
 demo_dat <- subset(demo_dat, !(demo_dat$P_ID == "P34"))
-
 
