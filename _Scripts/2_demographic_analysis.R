@@ -4,6 +4,12 @@ Data_sum <- summarySE(df_aftereffects,
                       measurevar = "visual_angle_avg",
                       groupvars = c("group", "block"))
 
+# Average response times for groups 
+library(Rmisc)
+movement_time_sum <- summarySE(avg_movement_time,
+                               measurevar = "mean_rt",
+                               groupvars = "group")
+
 # Mean and standard deviation of age
 mean_age <- mean(demo_dat$Age) # 26.55
 sd_age <- sd(demo_dat$Age) # 9.47
@@ -53,4 +59,17 @@ mod_oneway_k <- aov_ez("P_ID", "KVIQ_K_New",
 )
 mod_oneway_k
 # F(2,63) = 0.98, p > 0.05, n2 = 0.030; no sig diff between groups
+
+# Summary data for age, KVIQ_V, and KVIQ_K
+age <- summarySE(demo_dat,
+                 measurevar = "Age",
+                 groupvars = "Group_Name")
+
+KVIQ_V <- summarySE(demo_dat,
+                    measurevar = "KVIQ_V",
+                    groupvars = "Group_Name")
+
+KVIQ_K <- summarySE(demo_dat,
+                    measurevar = "KVIQ_K",
+                    groupvars = "Group_Name")
 
