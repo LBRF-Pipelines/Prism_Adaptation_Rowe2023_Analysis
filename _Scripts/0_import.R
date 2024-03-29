@@ -74,6 +74,20 @@ df_movement_time <- df_movement_time[, !c("created",
 # Remove participant 34
 df_movement_time <- subset(df_movement_time, !(df_movement_time$id == "P34"))
 
+# Making trial_num and response_time numerical values
+df_movement_time$trial_num <- as.numeric(df_movement_time$trial_num)
+df_movement_time$response_time <- as.numeric(df_movement_time$response_time)
+
+avg_movement_time <- df_movement_time %>%
+  group_by(id) %>%
+  mutate(
+    subblock = cumsum(!is.na(lag(trial_num)) & trial_num < lag(trial_num)) # Creating column of sub-blocks from 0 - 9 (10 blocks of 25 trials)
+  ) %>%
+  group_by(group, subblock) %>%
+  summarize(
+    mean_rt = mean(response_time),
+    sd_rt = sd(response_time) # Averaging response times for each sub-block per group
+  )
 
 ### Import demographic data ###
 
@@ -84,5 +98,4 @@ demo_dat <- demo_dat[1:67,]
 
 # Remove participant 34, experiment crashed
 demo_dat <- subset(demo_dat, !(demo_dat$P_ID == "P34"))
-
 
