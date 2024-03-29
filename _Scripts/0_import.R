@@ -54,6 +54,27 @@ df_aftereffects <- df_aftereffects %>%
   group_by(id, block) %>%
   mutate(visual_angle_avg = mean(visual_angle))
 
+# Subsetting exposure trials to look at movement times between MI and PP
+df_movement_time <- subset(df, block == "Exposure")
+
+# Subsetting only important columns
+df_movement_time <- df_movement_time[, !c("created",
+                                        "age",
+                                        "sex",
+                                        "handedness",
+                                        "reaction_time",
+                                        "points_x",
+                                        "points_y",
+                                        "location_x",
+                                        "location_y",
+                                        "distance_x",
+                                        "distance_y"
+                                        )]
+
+# Remove participant 34
+df_movement_time <- subset(df_movement_time, !(df_movement_time$id == "P34"))
+
+
 ### Import demographic data ###
 
 demo_dat <- read.csv("./_Data/Participant_info.csv")
@@ -63,4 +84,5 @@ demo_dat <- demo_dat[1:67,]
 
 # Remove participant 34, experiment crashed
 demo_dat <- subset(demo_dat, !(demo_dat$P_ID == "P34"))
+
 
