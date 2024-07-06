@@ -24,6 +24,12 @@ source("./_Scripts/0_import.R")
 # Run two-way ANOVA
 source("./_Scripts/1_twoway_ANOVA.R")
 
+# Run movement time
+source("./_Scripts/2_movement_time.R")
+
 # Summarize demographic data
-source("./_Scripts/2_demographic_analysis.R")
+source("./_Scripts/3_demographic_analysis.R")
+
+# Run KVIQ and Aftereffects Correlation
+source("./_Scripts/4_KVIQ_and_aftereffects_correlation.R")
 ```
